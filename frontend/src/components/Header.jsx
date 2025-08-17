@@ -3,13 +3,14 @@ import { CiSettings } from "react-icons/ci";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { Avatar } from "@mui/material";
 import { FiMenu, FiX } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <>
-      <div className="w-full bg-slate-950 h-16 text-white flex justify-between px-6 items-center relative">
+      <div className="w-full bg-slate-950 h-16 text-white flex justify-between px-6 items-center relative border-b border-gray-700">
         {/* Logo */}
         <div>
           <img src="logo.png" alt="logo" className="w-16 h-16 object-contain" />
@@ -17,30 +18,30 @@ const Header = () => {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex gap-10">
-          <a
-            href="#"
+          <Link
+            to="/jobs"
             className="text-gray-300 font-bold hover:text-green-500 hover:underline transition duration-200"
           >
             Find Job
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/talents"
             className="text-gray-300 font-bold hover:text-green-500 hover:underline transition duration-200"
           >
             Find Talents
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/upload"
             className="text-gray-300 font-bold hover:text-green-500 hover:underline transition duration-200"
           >
             Upload Job
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/about"
             className="text-gray-300 font-bold hover:text-green-500 hover:underline transition duration-200"
           >
             About Us
-          </a>
+          </Link>
         </div>
 
         {/* Right Section */}
@@ -62,19 +63,35 @@ const Header = () => {
 
         {/* Mobile Dropdown */}
         {menuOpen && (
-          <div className="absolute top-16 left-0 w-full bg-slate-900 flex flex-col items-center gap-4 py-6 md:hidden">
-            <a href="#" className="text-gray-300 font-bold hover:text-green-500">
+          <div className="absolute top-16 left-0 w-full bg-slate-900 flex flex-col items-center gap-4 py-6 md:hidden border-t border-gray-700">
+            <Link
+              to="/jobs"
+              className="text-gray-300 font-bold hover:text-green-500"
+              onClick={() => setMenuOpen(false)}
+            >
               Find Job
-            </a>
-            <a href="#" className="text-gray-300 font-bold hover:text-green-500">
+            </Link>
+            <Link
+              to="/talents"
+              className="text-gray-300 font-bold hover:text-green-500"
+              onClick={() => setMenuOpen(false)}
+            >
               Find Talents
-            </a>
-            <a href="#" className="text-gray-300 font-bold hover:text-green-500">
+            </Link>
+            <Link
+              to="/upload"
+              className="text-gray-300 font-bold hover:text-green-500"
+              onClick={() => setMenuOpen(false)}
+            >
               Upload Job
-            </a>
-            <a href="#" className="text-gray-300 font-bold hover:text-green-500">
+            </Link>
+            <Link
+              to="/about"
+              className="text-gray-300 font-bold hover:text-green-500"
+              onClick={() => setMenuOpen(false)}
+            >
               About Us
-            </a>
+            </Link>
           </div>
         )}
       </div>

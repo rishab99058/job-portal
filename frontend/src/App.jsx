@@ -1,17 +1,12 @@
-import Header from "./components/Header";
-
-
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./components/pages/HomePage";
 
 function App() {
-
-
   return (
-    <>
-      {/* <h1 className="text-3xl font-bold underline">Hello world!</h1> */}
-       <Header/>
-     
-       
-    </>
+    <Routes>
+      {/* Catch-all route → har path par HomePage */}
+      <Route path="*" element={<HomePage />} />
+    </Routes>
   );
 }
 
