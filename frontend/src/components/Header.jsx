@@ -10,7 +10,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="w-full bg-slate-950 h-16 text-white flex justify-between px-6 items-center relative border-b border-gray-700">
+      <div className="w-full bg-slate-950 h-16 text-white flex justify-between px-6 items-center relative border-b border-gray-700  z-50">
         {/* Logo */}
         <div>
           <img src="logo.png" alt="logo" className="w-16 h-16 object-contain" />
@@ -61,9 +61,15 @@ const Header = () => {
           </button>
         </div>
 
-        {/* Mobile Dropdown */}
+        {/* Mobile Dropdown with Glassy Effect + Animation */}
         {menuOpen && (
-          <div className="absolute top-16 left-0 w-full bg-slate-900 flex flex-col items-center gap-4 py-6 md:hidden border-t border-gray-700">
+          <div
+            className="absolute top-16 left-0 w-full 
+              bg-slate-900/60 backdrop-blur-md 
+              flex flex-col items-center gap-4 py-6 md:hidden 
+              border-t border-gray-700 shadow-lg
+              animate-slideDown"
+          >
             <Link
               to="/jobs"
               className="text-gray-300 font-bold hover:text-green-500"
@@ -95,6 +101,17 @@ const Header = () => {
           </div>
         )}
       </div>
+
+      {/* Animation Keyframes (Tailwind custom) */}
+      <style>{`
+        @keyframes slideDown {
+          from { opacity: 0; transform: translateY(-10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-slideDown {
+          animation: slideDown 0.3s ease-out;
+        }
+      `}</style>
     </>
   );
 };
